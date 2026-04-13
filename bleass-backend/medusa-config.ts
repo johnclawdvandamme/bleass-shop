@@ -2,7 +2,7 @@ const { defineConfig } = require("@medusajs/framework/utils");
 
 module.exports = defineConfig({
   projectConfig: {
-    databaseUrl: process.env.DATABASE_URL || "postgresql://bleass_db_user:oGDjhWteQN8PuSzVoBqvFmRLrTOAFfvB@dpg-d7e8okreo5us7383u2ag-a/bleass_db",
+    databaseUrl: process.env.DATABASE_URL || "postgresql://bleass_db_user:oGDjhWteQN8PuSzVoBqvFmRLrTOAFfvB@dpg-d7e8okreo5us7383u2ag-a.ohio-postgres.render.com/bleass_db?sslmode=require",
     databaseType: "postgres",
     http: {
       storeCors: process.env.STORE_CORS || "*",
