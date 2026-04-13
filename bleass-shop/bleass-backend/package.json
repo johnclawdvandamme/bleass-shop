@@ -13,7 +13,7 @@
     "medusa"
   ],
   "scripts": {
-    "build": "node ./node_modules/@medusajs/cli/cli.js build",
+    "build": "export PATH=./node_modules/.bin:$PATH && medusa build",
     "seed": "medusa exec ./src/scripts/bleass-seed.ts",
     "start": "medusa start",
     "dev": "medusa develop",
