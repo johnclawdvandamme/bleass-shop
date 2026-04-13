@@ -99,18 +99,18 @@ module.exports = defineConfig({
 
     // ── Redis (optional — requires Redis running) ─────────────
     // Uncomment if Redis is available. Falls back to in-memory when absent.
-    "@medusajs/cache-redis": {
-      resolve: "@medusajs/cache-redis",
-      options: {
-        redisUrl: process.env.REDIS_URL || "redis://red-d7e92kvaqgkc73fu221g:6379",
-      },
-    },
-    "@medusajs/event-bus-redis": {
-      resolve: "@medusajs/event-bus-redis",
-      options: {
-        redisUrl: process.env.REDIS_URL || "redis://red-d7e92kvaqgkc73fu221g:6379",
-      },
-    },
+    // "@medusajs/cache-redis": {
+    //   resolve: "@medusajs/cache-redis",
+    //   options: {
+    //     redisUrl: process.env.REDIS_URL || "redis://red-d7e92kvaqgkc73fu221g:6379",
+    //   },
+    // },
+    // "@medusajs/event-bus-redis": {
+    //   resolve: "@medusajs/event-bus-redis",
+    //   options: {
+    //     redisUrl: process.env.REDIS_URL || "redis://red-d7e92kvaqgkc73fu221g:6379",
+    //   },
+    // },
   },
 
   // ═══════════════════════════════════════════════════════════════
