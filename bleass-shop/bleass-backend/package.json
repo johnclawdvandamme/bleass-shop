@@ -13,8 +13,7 @@
     "medusa"
   ],
   "scripts": {
-    "prebuild": "npm install @medusajs/cli",
-    "build": "medusa build",
+    "build": "npm install @medusajs/cli && medusa build",
     "seed": "medusa exec ./src/scripts/bleass-seed.ts",
     "start": "medusa start",
     "dev": "medusa develop",
