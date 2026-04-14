@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postinstall": "cd bleass-backend && npm install",
+    "postinstall": "echo 'skip postinstall'",
     "start": "cd bleass-backend && ./node_modules/.bin/medusa start"
   },
   "dependencies": {
