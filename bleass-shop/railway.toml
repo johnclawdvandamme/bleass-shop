@@ -1,6 +1,0 @@
-[build]
-builder = "nixpacks"
-buildCommand = "cd bleass-backend && npm install && npm run build"
-
-[start]
-runCommand = "./start.sh"
