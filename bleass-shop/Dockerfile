@@ -1,21 +1,24 @@
-FROM node:20-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
-# Copy backend first (most likely to change)
+# Install curl for health checks
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Copy backend first
 COPY bleass-backend/package*.json ./bleass-backend/
 
-# Install backend dependencies (including dev for build tools)
-RUN cd bleass-backend && npm install
+# Install backend deps (node:20-slim has prebuilt binaries)
+RUN cd bleass-backend && npm install --omit=dev
 
-# Copy and install root dependencies
+# Copy root package files and install
 COPY package*.json ./
 RUN npm install --omit=dev
 
 # Copy all source
 COPY . .
 
-# Expose medusa
+# Expose medusa default port
 EXPOSE 9000
 
 # Start medusa
