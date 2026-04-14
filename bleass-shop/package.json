@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "cd bleass-backend && medusa start"
+    "start": "cd bleass-backend && ./node_modules/.bin/medusa start"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.97.0",
