@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9000";
-const PUB_API_KEY = "pk_01f8429e23d02db2a7f3d09c793d687d22c227df866b064cab63c4f1f82679a5";
+const API_URL = import.meta.env.VITE_MEDUSA_API_URL ?? "http://localhost:9000";
+const PUB_API_KEY = import.meta.env.VITE_MEDUSA_PUB_API_KEY ?? "";
 
 export const medusaClient = axios.create({
   baseURL: API_URL,
