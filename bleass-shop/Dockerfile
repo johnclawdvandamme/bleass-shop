@@ -1,25 +1,12 @@
-FROM node:20-slim
+FROM medusajs/medusa:latest
 
 WORKDIR /app
 
-# Install curl for health checks
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
-
-# Copy backend first
-COPY bleass-backend/package*.json ./bleass-backend/
-
-# Install backend deps (node:20-slim has prebuilt binaries)
-RUN cd bleass-backend && npm install --omit=dev
-
-# Copy root package files and install
-COPY package*.json ./
-RUN npm install --omit=dev
-
-# Copy all source
+# Copy entire project (root is the storefront, bleass-backend/ is the medusa project)
 COPY . .
 
-# Expose medusa default port
+# Expose medusa port
 EXPOSE 9000
 
-# Start medusa
-CMD ["sh", "-c", "cd bleass-backend && ./node_modules/.bin/medusa start"]
+# Start medusa from the backend directory
+CMD ["sh", "-c", "cd bleass-backend && medusa start"]
