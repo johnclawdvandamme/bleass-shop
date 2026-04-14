@@ -4,16 +4,19 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
-# === Backend: copy + install with max speed flags ===
+# Install pnpm globally
+RUN npm install -g pnpm
+
+# === Backend ===
 COPY bleass-backend/package*.json ./bleass-backend/
+COPY bleass-backend/pnpm-lock.yaml ./bleass-backend/pnpm-lock.yaml 2>/dev/null || true
 WORKDIR /app/bleass-backend
-RUN npm install --omit=dev --no-audit --no-fund --prefer-offline 2>&1 || \
-    npm install --omit=dev --no-audit --no-fund 2>&1
+RUN pnpm install --prefer-offline 2>&1 || pnpm install 2>&1
 
 # === Root ===
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --omit=dev
+RUN pnpm install --prefer-offline 2>&1 || pnpm install 2>&1
 
 # === Source ===
 COPY . .
